@@ -1,1 +1,1 @@
-# Docker-Django
+# Recursion チーム開発用
