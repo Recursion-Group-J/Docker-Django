@@ -11,4 +11,9 @@ jobs:
         with:
           project: group-j
           column: To do
-          repo-token: ${{ secrets.GH_TOKEN }}
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+      - name: use token
+        run: echo "$GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.output.token }}
