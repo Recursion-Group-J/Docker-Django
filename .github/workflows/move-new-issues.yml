@@ -19,12 +19,12 @@ jobs:
          env:
            TOKEN: ${{ steps.generate_token.outputs.token }}
 
-jobs:
-  automate-project-columns:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: alex-page/github-project-automation-plus@v0.3.0
-        with:
-          project: group-j
-          column: To do
-          repo-token: ${{TOKEN}}
+    job:
+      automate-project-columns:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: alex-page/github-project-automation-plus@v0.3.0
+            with:
+              project: group-j
+              column: To do
+              repo-token: ${{TOKEN}}
