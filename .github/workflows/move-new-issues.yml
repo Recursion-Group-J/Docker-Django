@@ -4,27 +4,27 @@ on:
     types: [opened]
 
 jobs:
-   job:
-     runs-on: ubuntu-18.04
-     steps:
-       - name: Generate token
-         id: generate_token
-         uses: tibdex/github-app-token@v1
-         with:
-           app_id: ${{ secrets.APP_ID }}
-           private_key: ${{ secrets.PRIVATE_KEY }}
-           # Optional (defaults to the current repository).
-           # repository: owner/repo
-       - name: Use token
-         env:
-           TOKEN: ${{ steps.generate_token.outputs.token }}
+  job:
+   runs-on: ubuntu-18.04
+   steps:
+     - name: Generate token
+       id: generate_token
+       uses: tibdex/github-app-token@v1
+       with:
+         app_id: ${{ secrets.APP_ID }}
+         private_key: ${{ secrets.PRIVATE_KEY }}
+         # Optional (defaults to the current repository).
+         # repository: owner/repo
+     - name: Use token
+       env:
+         TOKEN: ${{ steps.generate_token.outputs.token }}
 
-    job:
-      automate-project-columns:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: alex-page/github-project-automation-plus@v0.3.0
-            with:
-              project: group-j
-              column: To do
-              repo-token: ${{TOKEN}}
+  job:
+    automate-project-columns:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: alex-page/github-project-automation-plus@v0.3.0
+          with:
+            project: group-j
+            column: To do
+            repo-token: ${{TOKEN}}
