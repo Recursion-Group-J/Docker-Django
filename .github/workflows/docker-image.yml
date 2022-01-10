@@ -14,18 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
+    - name: Build the Docker image and Test for python code
       run: |
         docker-compose up --build -d
-
-  test:
-
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Test for python code
-        run: |
-          docker-compose up --build -d
-          docker-compose exec web manage.py test
-          docker-compose exec web flake8
+        docker-compose exec web manage.py test
