@@ -17,3 +17,4 @@ jobs:
     - name: Build the Docker image
       run: |
         docker-compose up --build -d
+        docker-compose exec web flake8
