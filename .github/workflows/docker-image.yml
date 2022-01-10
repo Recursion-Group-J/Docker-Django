@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image and Test for python code
       run: |
         docker-compose up --build -d
-        docker-compose exec web manage.py test
+        docker-compose exec -T web manage.py test
