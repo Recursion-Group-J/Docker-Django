@@ -17,4 +17,13 @@ jobs:
     - name: Build the Docker image
       run: |
         docker-compose up --build -d
-        docker-compose exec web flake8
+
+  test:
+
+    needs: build
+
+    steps:
+      - name: Test for python code
+        run: |
+          docker-compose exec web manage.py test
+          docker-compose exec web flake8
