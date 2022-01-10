@@ -26,5 +26,6 @@ jobs:
     steps:
       - name: Test for python code
         run: |
+          docker-compose up --build -d
           docker-compose exec web manage.py test
           docker-compose exec web flake8
