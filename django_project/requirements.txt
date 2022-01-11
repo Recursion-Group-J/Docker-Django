@@ -2,3 +2,5 @@ Django
 psycopg2-binary
 gunicorn
 djangorestframework
+flake8
+autopep8
